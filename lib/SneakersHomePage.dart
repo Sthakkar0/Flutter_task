@@ -170,12 +170,23 @@ class SneakersHomePage extends StatelessWidget {
                                         overflow: TextOverflow.ellipsis,
                                       ),
                                       const SizedBox(height: 4),
-                                      Text(
-                                        "\$${product.price ?? " "}",
-                                        style: const TextStyle(
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.bold,
-                                        ),
+                                      Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            "\$${product.price ?? " "}",
+                                            style: const TextStyle(
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          Wrap(crossAxisAlignment: WrapCrossAlignment.end,
+                                            children: [
+                                              Icon(Icons.star,color: Colors.yellow,size: 20,),
+                                              Text(product.rating?.rate.toString()??"")
+                                            ],
+                                          ),
+
+                                        ],
                                       ),
                                     ],
                                   ),
