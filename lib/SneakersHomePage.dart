@@ -29,7 +29,7 @@ class SneakersHomePage extends StatelessWidget {
           title: TextField(
             decoration: InputDecoration(
               hintText: "Search product",
-              hintStyle: const TextStyle(color: Colors.grey),
+              hintStyle: const TextStyle(color: Colors.grey,),
               prefixIcon: const Icon(Icons.search, color: Colors.grey),
               filled: true,
               fillColor: Colors.white,
