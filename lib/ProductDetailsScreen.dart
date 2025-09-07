@@ -130,7 +130,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(productDetails.category??""),
+                                Text((productDetails.category??"").toUpperCase(),style: TextStyle(fontWeight: FontWeight.bold),),
                                 Text(
                                   "\$${(productDetails.price as num?)?.toStringAsFixed(2) ?? '0.00'}",
                                   style: const TextStyle(

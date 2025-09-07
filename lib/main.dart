@@ -21,7 +21,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        fontFamily: "Roboto",
+        fontFamily: "Roboto-Regular",
+
         appBarTheme: Theme.of(
           context,
         ).appBarTheme.copyWith(systemOverlayStyle: SystemUiOverlayStyle.dark),
