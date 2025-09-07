@@ -19,7 +19,8 @@ class ItemModel {
     this.rating,
   });
 
-  factory ItemModel.fromRawJson(String str) => ItemModel.fromJson(json.decode(str));
+  factory ItemModel.fromRawJson(String str) =>
+      ItemModel.fromJson(json.decode(str));
 
   String toRawJson() => json.encode(toJson());
 
@@ -48,22 +49,14 @@ class Rating {
   final double? rate;
   final int? count;
 
-  Rating({
-    this.rate,
-    this.count,
-  });
+  Rating({this.rate, this.count});
 
   factory Rating.fromRawJson(String str) => Rating.fromJson(json.decode(str));
 
   String toRawJson() => json.encode(toJson());
 
-  factory Rating.fromJson(Map<String, dynamic> json) => Rating(
-    rate: json["rate"]?.toDouble(),
-    count: json["count"],
-  );
+  factory Rating.fromJson(Map<String, dynamic> json) =>
+      Rating(rate: json["rate"]?.toDouble(), count: json["count"]);
 
-  Map<String, dynamic> toJson() => {
-    "rate": rate,
-    "count": count,
-  };
+  Map<String, dynamic> toJson() => {"rate": rate, "count": count};
 }

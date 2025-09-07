@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'api_helper.dart';
 import 'bloc/Product_detail_Bloc/product_detail_bloc.dart';
-
 import 'bloc/Product_detail_Bloc/product_detail_event.dart';
 import 'bloc/Product_detail_Bloc/product_detail_state.dart';
 import 'repository/product_repository.dart';
@@ -29,6 +26,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
   @override
   void initState() {
     super.initState();
+    print("this is project");
     productDetailBloc = ProductDetailBloc(ProductRepository(ApiHelper()));
     productDetailBloc.add(FetchProductDetailEvent(widget.productId));
   }
@@ -54,6 +52,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               return const Center(child: CircularProgressIndicator(color: Colors.black,));
             } else if (state is ProductDetailLoadedState) {
               final productDetails = state.product;
+
               return SingleChildScrollView(
                 child: SafeArea(
                   bottom: false,
@@ -107,7 +106,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                               right: 16,
                               child: Center(
                                 child: Image.network(
-                                  productDetails['image'],
+                                  productDetails.image??"",
                                   height: 300,
                                 ),
                               ),
@@ -121,7 +120,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
                             Text(
-                              productDetails['title'] ?? '',
+                              productDetails.title ?? '',
                               style: const TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
@@ -129,10 +128,11 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                             ),
                             const SizedBox(height: 15),
                             Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(productDetails["category"]),
+                                Text(productDetails.category??""),
                                 Text(
-                                  "\$${(productDetails['price'] as num?)?.toStringAsFixed(2) ?? '0.00'}",
+                                  "\$${(productDetails.price as num?)?.toStringAsFixed(2) ?? '0.00'}",
                                   style: const TextStyle(
                                     fontSize: 20,
                                     fontWeight: FontWeight.bold,
@@ -144,7 +144,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                             const Divider(),
 
                             ExpandableTextWidget(
-                              text: productDetails['description'] ?? '',
+                              text: productDetails.description ?? '',
                             ),
                             Divider(),
                             const Text(

@@ -12,7 +12,7 @@ class ProductDetailBloc extends Bloc<ProductDetailEvent, ProductDetailState> {
     on<FetchProductDetailEvent>((event, emit) async {
       emit(ProductDetailLoadingState());
       try {
-        final product = await productRepository.fetchProductDetail(
+        final product = await productRepository.fetchProductDetails(
           event.productId,
         );
         emit(ProductDetailLoadedState(product));

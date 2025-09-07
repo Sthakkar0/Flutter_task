@@ -1,3 +1,4 @@
+import 'package:flutter_task_insomniacs/model/itemModel.dart';
 import 'package:flutter_task_insomniacs/model/productModel.dart';
 
 import '../api_helper.dart';
@@ -18,12 +19,9 @@ class ProductRepository {
     }
   }
 
-  Future<dynamic> fetchProductDetail(int productId) async {
-    try {
-      final response = await apiHelper.get('/products/$productId');
-      return response;
-    } catch (e) {
-      throw Exception('Failed to fetch product details: $e');
-    }
+  Future<ItemModel> fetchProductDetails(int productId) async {
+    final response = await apiHelper.get('/products/$productId');
+
+    return ItemModel.fromJson(response); // Convert to ItemModel
   }
 }
