@@ -10,7 +10,13 @@ import 'bloc/Navigation_Bloc/navigation_event.dart';
 import 'bloc/Navigation_Bloc/navigation_state.dart';
 
 void main() {
-  runApp(MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]).then((_) {
+    runApp(MyApp()); // Replace MyApp with your root widget
+  });
 }
 
 class MyApp extends StatelessWidget {
