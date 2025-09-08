@@ -54,7 +54,7 @@ class SneakersListScreen extends StatelessWidget {
           if (state is NavigationUpdated) {
             return pages[state.selectedIndex];
           }
-          return pages[0]; // Default to the first page
+          return pages[0];
         },
       ),
       bottomNavigationBar: BlocBuilder<NavigationBloc, NavigationState>(

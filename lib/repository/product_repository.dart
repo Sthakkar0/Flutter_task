@@ -22,6 +22,6 @@ class ProductRepository {
   Future<ItemModel> fetchProductDetails(int productId) async {
     final response = await apiHelper.get('/products/$productId');
 
-    return ItemModel.fromJson(response); // Convert to ItemModel
+    return ItemModel.fromJson(response);
   }
 }

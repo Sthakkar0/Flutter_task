@@ -41,8 +41,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: const SystemUiOverlayStyle(
-        statusBarIconBrightness: Brightness.light, // Android
-        statusBarBrightness: Brightness.dark, // iOS
+        statusBarIconBrightness: Brightness.light,
+        statusBarBrightness: Brightness.dark,
       ),
       child: Scaffold(
         body: BlocBuilder<ProductDetailBloc, ProductDetailState>(
@@ -89,7 +89,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                     icon: Icon(
                                       Icons.arrow_back_ios_new,
                                       color:
-                                          Colors.white, // ✅ white for contrast
+                                          Colors.white,
                                     ),
                                   ),
                                   const Icon(
@@ -201,22 +201,22 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                               style: ButtonStyle(
                                 backgroundColor: WidgetStateProperty.all(
                                   Colors.black,
-                                ), // Button background color
+                                ),
                                 foregroundColor: WidgetStateProperty.all(
                                   Colors.white,
-                                ), // Text color
+                                ),
                                 fixedSize: WidgetStateProperty.all(
                                   Size(double.infinity, 50),
-                                ), // Full width, height 50
+                                ),
                                 shape: WidgetStateProperty.all(
                                   RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(
                                       12,
-                                    ), // Rounded corners
+                                    ),
                                     side: BorderSide(
                                       color: Colors.black,
                                       width: 2,
-                                    ), // Border color and width
+                                    ),
                                   ),
                                 ),
                               ),
